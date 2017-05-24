@@ -1,0 +1,213 @@
+.combobox {
+  box-sizing: border-box;
+  height: 50px;
+  position: relative;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+
+  @include mq(desktop) {
+    font-size: 24px;
+  }
+
+  * {
+    box-sizing: inherit;
+  }
+
+  .combobox__input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border: none;
+
+    &:focus ~ .combobox__text {
+      border: 2px solid $combobox-input-bkgrd-active;
+    }
+  }
+
+  .combobox__text {
+    border: 2px solid transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    background: $combobox-input-bkgrd;
+    color: $combobox-input-text;
+    font-size: 16px;
+    height: 50px;
+    padding: 15px 38px 15px 15px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include mq($from: desktop) {
+      font-size: 24px;
+      padding: 10px 55px 10px 25px;
+    }
+
+    &--placeholder {
+      color: $combobox-input-placeholder;
+    }
+  }
+
+  .combobox__icon {
+    margin-top: -9.5px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    z-index: 200;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    svg {
+      fill: $combobox-icon-fill;
+      height: 12px;
+      width: 23px;
+
+      @include mq($from: desktop) {
+        height: 16px;
+        width: 32px;
+      }
+    }
+
+    @include mq($from: desktop) {
+      margin-top: -14.5px;
+      right: 23px;
+    }
+  }
+
+  .combobox__list {
+    background: $combobox-list-bkgrd;
+    line-height: 16px;
+    list-style: none;
+    margin: 28px 0 0 0;
+    max-height: 0;
+    overflow-y: scroll;
+    padding: 0 15px;
+    position: absolute;
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+    width: 100%;
+    z-index: 300;
+    -webkit-overflow-scrolling: touch;
+
+    @include mq($from: desktop) {
+      line-height: 24px;
+      padding: 0 25px;
+      margin: 19px 0 0 0;
+    }
+
+    .combobox__option {
+      padding-bottom: 15px;
+      outline: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+      &:hover{
+        color: $combobox-option-hover;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.form__combobox {
+  .form__message {
+    color: $error;
+    display: none;
+    margin-top: 4px;
+
+    @include mq($from: desktop) {
+      font-size: 22px;
+    }
+  }
+}
+
+.combobox--error {
+  .combobox__text {
+    border: 2px solid $error;
+    color: $error;
+  }
+
+  + .form__message {
+    display: block;
+  }
+}
+
+.combobox--active {
+  .combobox__text {
+    background: $combobox-input-bkgrd-active;
+    color: $combobox-input-text-active;
+
+    &--placeholder {
+      color: $combobox-input-placeholder-active;
+    }
+  }
+
+  // If max-height was updated the comboboxTabletListHeight and
+  // the comboboxDesktopListHeight variables
+  // should be updated in Combobox.jsx
+  .combobox__list {
+    border: 2px solid $combobox-list-border;
+    max-height: 220px;
+    padding: 20px 15px;
+
+    @include mq($from: desktop) {
+      max-height: 274px;
+      padding: 20px 25px;
+    }
+  }
+
+  .combobox__list:hover {
+    .combobox__option--selected {
+      color: $combobox-option;
+    }
+  }
+
+  .combobox__option--selected {
+    color: $combobox-option-hover;
+  }
+
+  .combobox__icon {
+    svg {
+      fill: $combobox-icon-fill-active;
+    }
+  }
+}
+
+.combobox--upward {
+  .combobox__list {
+    bottom: 100%;
+    margin: 0;
+  }
+}
+
+.combobox--disabled {
+  .combobox__text {
+    color: $combobox-input-text-disabled;
+
+    &:hover {
+      cursor: default;
+    }
+
+    &--placeholder {
+      color: $combobox-input-placeholder-disabled;
+    }
+  }
+
+  .combobox__icon {
+    &:hover {
+      cursor: default;
+    }
+
+    svg {
+      fill: $combobox-icon-fill-disabled;
+    }
+  }
+}

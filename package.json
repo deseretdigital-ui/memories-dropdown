@@ -1,0 +1,56 @@
+{
+  "name": "memories-dropdown",
+  "version": "1.0.0",
+  "description": "React Dropdown",
+  "repository": {
+    "url": "https://github.com/deseretdigital-ui/memories-dropdown",
+    "type": "git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "dropdown",
+    "combobox"
+  ],
+  "author": "Illya Usenko <usenko.illya@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "dist",
+    "example": "example"
+  },
+  "scripts": {
+    "build": "npm run build-js; npm run build-css; npm run build-example",
+    "build-js": "webpack -p src/index.js --output-path='./dist' --output-filename='dropdown.js'",
+    "build-css": "node-sass --output-style compressed --include-path scss scss/styles.scss dist/styles.css",
+    "build-example": "webpack --devtool source-map ./example/example.jsx --output-path='./example/assets/js' --output-filename='example.js'; gulp",
+    "lint": "eslint src/*"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "eslint": "^3.11.1",
+    "eslint-formatter-pretty": "^1.1.0",
+    "eslint-plugin-jest": "^19.0.1",
+    "eslint-plugin-react": "^6.7.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "webpack": "^2.2.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "node-sass": "^3.13.0",
+    "prop-types": "^15.5.7",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
+    "require-dir": "^0.3.1",
+    "sass-mq": "^3.3.1"
+  }
+}

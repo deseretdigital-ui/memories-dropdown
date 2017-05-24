@@ -1,0 +1,19 @@
+/* Constants */
+
+// If desktop breakpoint was updated the value also should be updated in
+// desktopBreakpoint variable in Combobox.jsx
+
+$mobile:           320px;
+$tablet:           768px;
+$tablet-landscape: 1024px; // used for header in _header.scss
+$desktop:          1065px;
+
+$mq-breakpoints: (
+  mobile:           $mobile,
+  tablet:           $tablet,
+  tablet-landscape: $tablet-landscape,
+  desktop:          $desktop,
+);
+
+// Display the currently active breakpoint in the top right corner of your site
+//$mq-show-breakpoints: (mobile, tablet, desktop);

@@ -1,0 +1,27 @@
+$white: #fff;
+$black: #343434; // black used for text
+$red:   #d90000; // red used for errors
+
+$main-orange:  #f4a41d;
+$main-gray:    #9d9d9d;
+$white-smoke:  #f6f6f6;
+
+$error: $red;
+
+$combobox-input-text:               $black;
+$combobox-input-bkgrd:              $white-smoke;
+$combobox-input-placeholder:        $main-gray;
+$combobox-icon-fill:                $main-orange;
+$combobox-list-bkgrd:               $white;
+$combobox-list-border:              $main-orange;
+$combobox-option:                   $black;
+$combobox-option-hover:             $main-orange;
+
+$combobox-input-text-active:        $white;
+$combobox-input-bkgrd-active:       $main-orange;
+$combobox-input-placeholder-active: $white;
+$combobox-icon-fill-active:         $white;
+
+$combobox-input-text-disabled:        #d7d7d7;
+$combobox-input-placeholder-disabled: $combobox-input-text-disabled;
+$combobox-icon-fill-disabled:         #fadaa5;
